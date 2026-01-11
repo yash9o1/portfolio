@@ -59,20 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (form && successPopup) {
 
       const submitBtn = form.querySelector(".contact-submit");
-      if (submitBtn) {
-        submitBtn.addEventListener("click", () => {
-          // Animate button immediately on click
-          submitBtn.classList.add("sent");
-          submitBtn.textContent = "Sent";
-          submitBtn.disabled = true;
-          setTimeout(() => {
-            submitBtn.classList.remove("sent");
-            submitBtn.textContent = "Submit";
-            submitBtn.disabled = false;
-          }, 2000);
-        });
-      }
-
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -85,7 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const json = await res.json();
 
-        if (json.success) {
+        if (json.success && submitBtn) {
+          // Animate button only on valid info
+          submitBtn.classList.add("sent");
+          submitBtn.textContent = "Sent";
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            submitBtn.classList.remove("sent");
+            submitBtn.textContent = "Submit";
+            submitBtn.disabled = false;
+          }, 2000);
           form.reset();
         }
       });
