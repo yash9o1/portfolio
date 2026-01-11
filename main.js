@@ -82,6 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.disabled = false;
           }, 2000);
           form.reset();
+        } else {
+          // Show error message
+          const resultDiv = document.getElementById("form-result");
+          if (resultDiv) {
+            resultDiv.textContent = json.message || "Submission failed. Please check your info and try again.";
+            resultDiv.style.color = "#d32f2f";
+            setTimeout(() => {
+              resultDiv.textContent = "";
+            }, 4000);
+          }
         }
       });
 
