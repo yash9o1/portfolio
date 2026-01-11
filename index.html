@@ -524,27 +524,28 @@
       <p class="contact-subtitle">Bring a rough concept. Leave with a clear plan.</p>
     </div>
 
-    <form class="contact-form">
+    <form id="contactForm" class="contact-form">
+      <input type="hidden" name="access_key" value="8f44ba6e-2aad-4f54-955f-59d3412516db">
       <div class="contact-row two-col">
         <label class="contact-field">
           <span class="contact-label">Name</span>
-          <input type="text" placeholder="Enter Your Name" aria-label="Name">
+          <input type="text" name="name" placeholder="Enter Your Name" required>
         </label>
         <label class="contact-field">
           <span class="contact-label">Email address</span>
-          <input type="email" placeholder="Enter Your Email" aria-label="Email address">
+          <input type="email" name="email" placeholder="Enter Your Email" required>
         </label>
       </div>
-
       <div class="contact-row">
         <label class="contact-field">
           <span class="contact-label">Message</span>
-          <textarea placeholder="Type Your Message Here.." aria-label="Message"></textarea>
+          <textarea name="message" placeholder="Type Your Message Here.." required></textarea>
         </label>
       </div>
-
-      <button type="button" class="contact-submit">Submit</button>
+      <button type="submit" class="contact-submit">Submit</button>
     </form>
+
+    <div id="form-result"></div>
 
     <div class="contact-socials">
       <a href="https://www.figma.com/@yash9o1" aria-label="Figma" class="contact-icon" target="_blank" rel="noopener noreferrer">
@@ -673,4 +674,16 @@
   });
 </script>
 </body>
+<div id="successPopup" class="success-popup">
+  <div class="success-box">
+    <div class="success-tick"></div>
+    <p>Message Sent Successfully</p>
+  </div>
+</div>
+<div id="formPopup" class="form-popup">
+  <div class="form-popup-box">
+    <p>Message Sent Successfully</p>
+    <button id="closePopup">OK</button>
+  </div>
+</div>
 </html>

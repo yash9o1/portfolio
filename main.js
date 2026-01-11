@@ -52,30 +52,50 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   }
   animateTimelineGraphMobile();
 document.addEventListener("DOMContentLoaded", () => {
-    // Contact form submission logic
-    const contactForm = document.getElementById("contactForm");
-    const resultDiv = document.getElementById("result");
-    if (contactForm) {
-      contactForm.addEventListener("submit", async function (e) {
+    // Contact form submission logic with new successPopup
+    const form = document.getElementById("contactForm");
+    const successPopup = document.getElementById("successPopup");
+
+    if (form && successPopup) {
+
+      const submitBtn = form.querySelector(".contact-submit");
+      if (submitBtn) {
+        submitBtn.addEventListener("click", () => {
+          // Animate button immediately on click
+          submitBtn.classList.add("sent");
+          submitBtn.textContent = "Sent";
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            submitBtn.classList.remove("sent");
+            submitBtn.textContent = "Submit";
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+      }
+
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        resultDiv.textContent = "Sending...";
-        const formData = new FormData(contactForm);
-        try {
-          const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-          });
-          const data = await response.json();
-          if (data.success) {
-            resultDiv.textContent = "Thank you! Your message has been sent.";
-            contactForm.reset();
-          } else {
-            resultDiv.textContent = data.message || "Something went wrong. Please try again.";
-          }
-        } catch (err) {
-          resultDiv.textContent = "Error sending message. Please try again later.";
+
+        const data = new FormData(form);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: data
+        });
+
+        const json = await res.json();
+
+        if (json.success) {
+          form.reset();
         }
       });
+
+      // close on click anywhere
+      if (successPopup) {
+        successPopup.addEventListener("click", () => {
+          successPopup.classList.remove("show");
+        });
+      }
     }
   // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
@@ -1018,24 +1038,26 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   obs.observe(section);
 }
 const form = document.getElementById("contactForm");
-const result = document.getElementById("result");
+const successPopup = document.getElementById("successPopup");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
 
-  const response = await fetch("https://api.web3forms.com/submit", {
+  const res = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     body: formData
   });
 
-  const data = await response.json();
+  const data = await res.json();
 
   if (data.success) {
-    result.innerHTML = "Message Sent Successfully!";
+    successPopup.classList.add("show");
     form.reset();
-  } else {
-    result.innerHTML = "Something went wrong. Try again.";
   }
+});
+
+successPopup.addEventListener("click", () => {
+  successPopup.classList.remove("show");
 });
