@@ -52,6 +52,31 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   }
   animateTimelineGraphMobile();
 document.addEventListener("DOMContentLoaded", () => {
+    // Contact form submission logic
+    const contactForm = document.getElementById("contactForm");
+    const resultDiv = document.getElementById("result");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        resultDiv.textContent = "Sending...";
+        const formData = new FormData(contactForm);
+        try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+          });
+          const data = await response.json();
+          if (data.success) {
+            resultDiv.textContent = "Thank you! Your message has been sent.";
+            contactForm.reset();
+          } else {
+            resultDiv.textContent = data.message || "Something went wrong. Please try again.";
+          }
+        } catch (err) {
+          resultDiv.textContent = "Error sending message. Please try again later.";
+        }
+      });
+    }
   // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
   const navList = document.getElementById("navList");
@@ -992,3 +1017,25 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 
   obs.observe(section);
 }
+const form = document.getElementById("contactForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    result.innerHTML = "Message Sent Successfully!";
+    form.reset();
+  } else {
+    result.innerHTML = "Something went wrong. Try again.";
+  }
+});
