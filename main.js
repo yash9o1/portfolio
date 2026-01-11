@@ -52,56 +52,9 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   }
   animateTimelineGraphMobile();
 document.addEventListener("DOMContentLoaded", () => {
-    // Contact form submission logic with new successPopup
-    const form = document.getElementById("contactForm");
-    const successPopup = document.getElementById("successPopup");
+    // Contact form submission is now handled by EmailJS at the bottom of this file
+    // Success popup close logic is also handled there
 
-    if (form && successPopup) {
-
-      const submitBtn = form.querySelector(".contact-submit");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const data = new FormData(form);
-
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: data
-        });
-
-        const json = await res.json();
-
-        if (json.success && submitBtn) {
-          // Animate button only on valid info
-          submitBtn.classList.add("sent");
-          submitBtn.textContent = "Sent";
-          submitBtn.disabled = true;
-          setTimeout(() => {
-            submitBtn.classList.remove("sent");
-            submitBtn.textContent = "Submit";
-            submitBtn.disabled = false;
-          }, 2000);
-          form.reset();
-        } else {
-          // Show error message
-          const resultDiv = document.getElementById("form-result");
-          if (resultDiv) {
-            resultDiv.textContent = json.message || "Submission failed. Please check your info and try again.";
-            resultDiv.style.color = "#d32f2f";
-            setTimeout(() => {
-              resultDiv.textContent = "";
-            }, 4000);
-          }
-        }
-      });
-
-      // close on click anywhere
-      if (successPopup) {
-        successPopup.addEventListener("click", () => {
-          successPopup.classList.remove("show");
-        });
-      }
-    }
   // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
   const navList = document.getElementById("navList");
@@ -1042,27 +995,65 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 
   obs.observe(section);
 }
-const form = document.getElementById("contactForm");
+
+// ========================= EMAILJS INTEGRATION START =========================
+const contactForm = document.getElementById("contactForm");
 const successPopup = document.getElementById("successPopup");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-  const formData = new FormData(form);
+    const submitBtn = contactForm.querySelector(".contact-submit");
+    const originalText = submitBtn ? submitBtn.textContent : "Submit";
 
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    body: formData
+    // 1. Show loading state
+    if (submitBtn) {
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+    }
+
+    // 2. Send Email using your Service ID and Template ID
+    // Note: 'this' refers to the form element
+    emailjs.sendForm('service_o8ih5li', 'template_lxymzvf', this)
+      .then(function() {
+          console.log('SUCCESS!');
+          
+          // Show Success Popup
+          if (successPopup) {
+            successPopup.classList.add("show");
+          }
+          
+          // Reset Form
+          contactForm.reset();
+          
+          // Button Feedback
+          if (submitBtn) {
+            submitBtn.textContent = "Sent!";
+            submitBtn.classList.add("sent");
+            
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+              submitBtn.classList.remove("sent");
+            }, 3000);
+          }
+      }, function(error) {
+          console.log('FAILED...', error);
+          alert("Failed to send message. Please check console for details.");
+          
+          if (submitBtn) {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+      });
   });
+}
 
-  const data = await res.json();
-
-  if (data.success) {
-    successPopup.classList.add("show");
-    form.reset();
-  }
-});
-
-successPopup.addEventListener("click", () => {
-  successPopup.classList.remove("show");
-});
+// Close popup logic
+if (successPopup) {
+  successPopup.addEventListener("click", () => {
+    successPopup.classList.remove("show");
+  });
+}
+// ========================= EMAILJS INTEGRATION END =========================
