@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Update contact social links",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"$content = Get-Content -Raw -Path 'c:\\Users\\yasht\\Downloads\\portfolio\\index.html'; $content -replace '<div class=\\\"contact-socials\\\">[\\s\\S]*?<\\/div>','<div class=\\\"contact-socials\\\">\\n      <a href=\\\"https://www.instagram.com/yash9o1/\\\" aria-label=\\\"Instagram\\\" class=\\\"contact-icon\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">\\n        <img src=\\\"./assets/icons social/Social Icons.svg\\\" alt=\\\"Instagram\\\">\\n      </a>\\n      <a href=\\\"https://www.linkedin.com/in/yuvraj-tyagi-957a6a2a2/\\\" aria-label=\\\"LinkedIn\\\" class=\\\"contact-icon\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">\\n        <img src=\\\"./assets/icons social/Social Icons-1.svg\\\" alt=\\\"LinkedIn\\\">\\n      </a>\\n      <a href=\\\"https://www.figma.com/@yash9o1\\\" aria-label=\\\"Figma\\\" class=\\\"contact-icon\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">\\n        <img src=\\\"./assets/icons social/Social Icons-2.svg\\\" alt=\\\"Figma\\\">\\n      </a>\\n    </div>' | Set-Content -Path 'c:\\Users\\yasht\\Downloads\\portfolio\\index.html'\"",
+			"group": "build"
+		}
+	]
+}

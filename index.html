@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Portfolio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<svg width="0" height="0">
+	<filter id="glass-distortion">
+		<feTurbulence
+			type="fractalNoise" 
+			baseFrequency="0.008"
+			numOctaves="2"
+			seed="2"
+			result="noise"
+		/>
+		<feDisplacementMap
+			in="SourceGraphic"
+			in2="noise"
+			scale="12"
+			xChannelSelector="R"
+			yChannelSelector="G"
+		/>
+	</filter>
+</svg>
+
+<nav class="navbar">
+	<div class="nav-brand">YUVRAJ</div>
+	<button class="hamburger" id="hamburger" aria-label="Toggle menu">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+	<ul class="nav-list" id="navList">
+		<li><span>About</span></li>
+		<li><span>Work</span></li>
+		<li><span>Services</span></li>
+		<li><span>LinkedIn</span></li>
+		<li><span>Get In Touch</span></li>
+	</ul>
+</nav>
+
+<section class="hero">
+	<div class="hero-frame">
+    <picture>
+      <!-- encode space as %20 to avoid URL issues on some servers/browsers -->
+      <source srcset="./assets/mobile%20hero.png" media="(max-width: 768px)">
+      <img src="./assets/hero.png" alt="Hero Image" />
+    </picture>
+
+		<!-- POPUP GROUP -->
+		<div class="popup-group" id="heropopup">
+
+			<!-- BACK POPUPS -->
+			<div class="popup-card ghost ghost-4"></div>
+			<div class="popup-card ghost ghost-3"></div>
+			<div class="popup-card ghost ghost-2"></div>
+
+			<!-- MAIN POPUP -->
+			<div class="popup-card main">
+				<div class="popup-header">
+					<div class="window-control minimize">
+						<img src="./assets/icons/minimize.svg" alt="Minimize">
+					</div>
+					<div class="window-control close">
+						<img src="./assets/icons/close.svg" alt="Close">
+					</div>
+				</div>
+
+				<div class="popup-body">
+					<p>
+						Structure Decides What Survives. Visuals Decide What Gets Noticed.
+						I Design Systems That Do Both—Without Noise, Without Excuses.
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<!-- =========================
+     STRUCTURE / CERTIFICATIONS / SKILLS / RESUME
+========================= -->
+<section class="philosophy-section" id="philosophy-section">
+
+  <div class="philosophy-text">
+    <h2>
+      STRUCTURE FIRST. <span class="highlight">BEAUTY</span><br>
+      FOLLOWS WITH PURPOSE.
+    </h2>
+
+    <p>
+      I Design Interfaces By Reducing Problems To Their Core And Building
+      Structure Before Surface. My Work Prioritizes Clarity, Usability, And
+      Scalable Systems—Guided By Research, Hierarchy, And Intent. Every Screen
+      Follows Clear Rules And Is Designed To Feel Deliberate, Functional, And Human.
+    </p>
+  </div>
+
+  <!-- BIG CONTAINER -->
+  <div class="content-group">
+
+    <!-- SMALL CONTAINER 1 -->
+		<div class="content-block">
+			<span class="section-label">Certifications</span>
+
+			<div class="horizontal-scroll">
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 2GL6MSUHD652_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 4ACRSRHJHYC2_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 6YHRG61PJV75_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 7BCXF7MYK09T_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 7OHYBY4MVPQ1_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 486QGX9I5Q1C_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera 822CKQBDO2BA_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera CPY4DT9GX8BJ_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera E8P3M258YFJV_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera M6PKBXE7KC1M_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/Coursera MCFCA0YBY72E_page-0001.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/1.jpg" alt="Certificate">
+				</div>
+
+				<div class="certificate-card">
+					<img src="./assets/certificate photo/2.jpg" alt="Certificate">
+				</div>
+
+			</div>
+		</div>
+
+		<!-- SMALL CONTAINER 2 : SKILLS -->
+		<div class="content-block">
+			<span class="section-label">Skills</span>
+
+			<div class="skills-row">
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:88">
+						<span class="skill-percent">88%</span>
+					</div>
+					<span class="skill-text">Information Architecture</span>
+				</div>
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:73">
+						<span class="skill-percent">73%</span>
+					</div>
+					<span class="skill-text">UX Psychology</span>
+				</div>
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:84">
+						<span class="skill-percent">84%</span>
+					</div>
+					<span class="skill-text">Design System</span>
+				</div>
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:78">
+						<span class="skill-percent">78%</span>
+					</div>
+					<span class="skill-text">UX Strategy</span>
+				</div>
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:80">
+						<span class="skill-percent">80%</span>
+					</div>
+					<span class="skill-text">Visual Design</span>
+				</div>
+
+				<div class="skill-item">
+					<div class="skill-circle" style="--value:75">
+						<span class="skill-percent">75%</span>
+					</div>
+					<span class="skill-text">Interaction Design</span>
+				</div>
+
+			</div>
+		</div>
+
+    <!-- SMALL CONTAINER 3 -->
+    <div class="content-block">
+      <span class="section-label">Resume</span>
+
+      <div class="resume-container">
+        <img
+          src="./assets/resume.png"
+          alt="Resume"
+          class="resume-image"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     PROJECTS SECTION
+========================= -->
+<section class="projects-section" id="projects-section">
+
+  <!-- BIG CONTAINER -->
+  <div class="projects-container">
+
+    <!-- TITLE -->
+    <h2 class="projects-title">Projects</h2>
+
+    <!-- SUB-MENU -->
+    <div class="projects-submenu" tabindex="0">
+      <div class="submenu-scroll-hint">&#8592; Scroll &#8594;</div>
+      <div class="submenu-items-row">
+        <div class="submenu-item active">All</div>
+        <div class="submenu-item">Website Designs</div>
+        <div class="submenu-item">Mobile Designs</div>
+        <div class="submenu-item">Website Re-Designs</div>
+        <div class="submenu-item">Landing Pages</div>
+      </div>
+    </div>
+
+    <!-- PROJECT GRID (SMALL CONTAINER) -->
+    <div class="projects-grid">
+
+      <!-- ROW 1 -->
+      <div class="projects-row">
+        <div class="project-card" data-project="1"><a href="https://www.behance.net/gallery/231648063/The-Snitch-Experience" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide.png"></a></div>
+        <div class="project-card" data-project="2"><a href="https://www.behance.net/gallery/219579741/Cosafin-Seamless-Financial-Planning-Insights" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1.png"></a></div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="projects-row">
+        <div class="project-card" data-project="3"><a href="https://www.behance.net/gallery/224498689/IRCTC-Redefined-(Landing-page)" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-2.png"></a></div>
+        <div class="project-card" data-project="4"><a href="https://www.behance.net/gallery/204120435/eAuction-Redesign" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-3.png"></a></div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="projects-row">
+        <div class="project-card" data-project="5"><a href="https://www.behance.net/gallery/201788483/isro-website-redesigned" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-4.png"></a></div>
+        <div class="project-card" data-project="6"><a href="https://www.behance.net/gallery/204990587/TrendBend-E-Commerce-Shopping-App-Design" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-5.png"></a></div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="projects-row">
+        <div class="project-card" data-project="7"><a href="https://www.behance.net/gallery/203661005/BloomBox-Flower-Delivery-Gift-App-Design" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-6.png"></a></div>
+        <div class="project-card" data-project="8"><a href="https://www.behance.net/gallery/206343789/Carbon-Insights-Sustainability-Design-Project" target="_blank" rel="noopener noreferrer"><img src="./assets/projects/1. Cover Slide-1.png"></a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     STAGES SECTION
+========================= -->
+<section class="stages-section">
+
+  <h2 class="stages-title">Stages Of Work</h2>
+  <div class="timeline-container">
+    <div class="timeline-wrapper timeline-desktop">
+      <img src="./assets/timeline/Line%201.svg" alt="Timeline Line" class="timeline-line-svg">
+      <div class="timeline-items">
+        <div class="timeline-item top">
+          <div class="label-container label-top label-1">
+            <div class="label">PROBLEM FRAMING</div>
+            <div class="connector"></div>
+          </div>
+          <img src="./assets/timeline/circle.svg" alt="Circle" class="timeline-circle circle-1">
+        </div>
+        <div class="timeline-item bottom">
+          <img src="./assets/timeline/circle.svg" alt="Circle" class="timeline-circle circle-2">
+          <div class="label-container label-bottom label-2" id="label-research">
+            <div class="label">RESEARCH & STRUCTURE</div>
+            <div class="connector"></div>
+          </div>
+        </div>
+        <div class="timeline-item top">
+          <div class="label-container label-top label-3">
+            <div class="label">WIREFRAME & FLOW</div>
+            <div class="connector"></div>
+          </div>
+          <img src="./assets/timeline/circle.svg" alt="Circle" class="timeline-circle circle-3">
+        </div>
+        <div class="timeline-item bottom">
+          <img src="./assets/timeline/circle.svg" alt="Circle" class="timeline-circle circle-4">
+          <div class="label-container label-bottom label-4" id="label-research">
+            <div class="label">VISUAL SYSTEM</div>
+            <div class="connector"></div>
+          </div>
+        </div>
+        <div class="timeline-item top">
+          <div class="label-container label-top label-5">
+            <div class="label">HIGH-FIDELITY & INTERACTION</div>
+            <div class="connector"></div>
+          </div>
+          <img src="./assets/timeline/circle.svg" alt="Circle" class="timeline-circle circle-5">
+        </div>
+      </div>
+    </div>
+    <div class="timeline-mobile" style="display:none;">
+      <img src="./assets/timeline/timeline graph.svg" alt="Timeline Graph" style="width:100%;max-width:520px;display:block;margin:0 auto;">
+    </div>
+  </div>
+
+</section>
+
+<!-- =========================
+     SERVICES SECTION
+========================= -->
+<section class="services-section" id="services-section">
+
+  <h2 class="services-title">Services</h2>
+  
+  <p class="services-description">
+    I Design Digital Interfaces With A Focus On Structure, Clarity, And Real User Behavior. Each Service Is Built Around Solving A Specific Problem—Whether It's Shaping A New Product, Refining An Existing One, Or Creating Focused Experiences That Communicate Fast And Work Reliably. Every Decision Is Intentional, Scalable, And Grounded In Usability.
+  </p>
+
+  <div class="services-grid">
+
+    <div class="popup-group">
+
+    <div class="service-popup" data-service="Website Interface Design">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>Website Interface Design</p></div>
+              <div class="flip-face back"><p>Designing structured, scalable website interfaces focused on clarity, hierarchy, and usability across pages.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-popup" data-service="Mobile App Design">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>Mobile App Design</p></div>
+              <div class="flip-face back"><p>Creating intuitive mobile interfaces optimized for touch, flow, and real user behavior.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-popup" data-service="Design System Creation">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>Design System Creation</p></div>
+              <div class="flip-face back"><p>Defining consistent visual systems—color, typography, and components—for digital products.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-popup" data-service="UX Research & Strategy">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>UX Research & Strategy</p></div>
+              <div class="flip-face back"><p>Turning insights into clear product decisions, flows, and priorities that drive outcomes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-popup" data-service="Interaction Design">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>Interaction Design</p></div>
+              <div class="flip-face back"><p>Designing micro‑interactions and motion that guide attention, give feedback, and create flow.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-popup" data-service="Website Redesign">
+      <div class="popup-card main">
+        <div class="popup-header">
+          <div class="window-control minimize">
+            <img src="./assets/icons/minimize.svg" alt="Minimize">
+          </div>
+          <div class="window-control close">
+            <img src="./assets/icons/close.svg" alt="Close">
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="flip-face front"><p>Website Redesign</p></div>
+              <div class="flip-face back"><p>Reworking existing websites to improve structure, usability, and visual clarity—without losing intent.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+		 CHOOSE ME SECTION
+========================= -->
+<section class="choose-me">
+  <div class="choose-me-container">
+    <img src="assets/slice.png" alt="Choose Me" class="choose-me-image">
+  </div>
+</section>
+
+<!-- =========================
+     CARD SECTION (DESKTOP ONLY)
+========================= -->
+<section class="card-section">
+  <div class="card-container">
+    <picture>
+      <source srcset="./assets/card%20mobile.png" media="(max-width: 768px)">
+      <img src="./assets/card.png" alt="Card Image" class="card-image">
+    </picture>
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+<section class="contact-section" id="contact-section">
+  <div class="contact-inner">
+    <div class="contact-header">
+      <h2 class="contact-title">Not Sure Yet? That’s Enough To Start.</h2>
+      <p class="contact-subtitle">Bring a rough concept. Leave with a clear plan.</p>
+    </div>
+
+    <form class="contact-form">
+      <div class="contact-row two-col">
+        <label class="contact-field">
+          <span class="contact-label">Name</span>
+          <input type="text" placeholder="Enter Your Name" aria-label="Name">
+        </label>
+        <label class="contact-field">
+          <span class="contact-label">Email address</span>
+          <input type="email" placeholder="Enter Your Email" aria-label="Email address">
+        </label>
+      </div>
+
+      <div class="contact-row">
+        <label class="contact-field">
+          <span class="contact-label">Message</span>
+          <textarea placeholder="Type Your Message Here.." aria-label="Message"></textarea>
+        </label>
+      </div>
+
+      <button type="button" class="contact-submit">Submit</button>
+    </form>
+
+    <div class="contact-socials">
+      <a href="https://www.figma.com/@yash9o1" aria-label="Figma" class="contact-icon" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/icons%20social/Social%20Icons.svg" alt="Figma">
+      </a>
+      <a href="https://www.instagram.com/yash9o1/" aria-label="Instagram" class="contact-icon" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/icons%20social/Social%20Icons-1.svg" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com/in/yuvraj-tyagi-957a6a2a2/" aria-label="LinkedIn" class="contact-icon" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/icons%20social/Social%20Icons-2.svg" alt="LinkedIn">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     THANK YOU SECTION
+========================= -->
+<section class="thankyou-section">
+  <div class="thankyou-container">
+    <picture>
+      <source srcset="./assets/Thank%20you%20(%5E.%5E).svg" media="(max-width: 768px)">
+      <img src="./assets/thankyou.png" alt="Thank You" class="thankyou-image">
+    </picture>
+  </div>
+</section>
+
+<!-- =========================
+		 CERTIFICATE MODAL
+========================= -->
+<div class="certificate-modal" id="certificateModal">
+	<div class="certificate-modal-content">
+		<button class="modal-close" id="modalClose">✕</button>
+		<img id="modalImage" src="" alt="Certificate Preview">
+	</div>
+</div>
+
+<div class="certificate-cursor" id="certificateCursor">
+  VIEW
+</div>
+
+<script src="main.js"></script>
+<script>
+  // Mobile-only hero image fallback: swap to mobile image on small viewports
+  (function() {
+    const mobileSrc = './assets/mobile%20hero.png';
+    const desktopSrc = './assets/hero.png';
+
+    function updateHero() {
+      const mq = window.matchMedia('(max-width: 768px)');
+      const heroImg = document.querySelector('.hero-frame picture img');
+      if (!heroImg) return;
+      heroImg.src = mq.matches ? mobileSrc : desktopSrc;
+    }
+
+    // Initial set
+    updateHero();
+
+    // Update on resize/orientation change
+    window.addEventListener('resize', updateHero);
+    window.addEventListener('orientationchange', updateHero);
+  })();
+</script>
+<script>
+  // Card section scroll animation
+  (function() {
+    const cardSection = document.querySelector('.card-section');
+    const cardImage = cardSection?.querySelector('.card-image');
+    if (!cardSection || !cardImage) return;
+
+    // Alternate direction on every page load for demo (or you can use a prop/flag)
+    let reverse = false;
+    if (window.sessionStorage) {
+      reverse = sessionStorage.getItem('cardReverse') === '1';
+      sessionStorage.setItem('cardReverse', reverse ? '0' : '1');
+    }
+    if (reverse) cardSection.classList.add('reverse');
+
+    function onScroll() {
+      const rect = cardSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Trigger when section is at least 20% visible
+      if (rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2) {
+        cardImage.classList.add('animate-in');
+      } else {
+        cardImage.classList.remove('animate-in');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+</script>
+<script>
+  document.querySelectorAll('.submenu-item').forEach(item => {
+    item.addEventListener('click', function() {
+      document.querySelectorAll('.submenu-item').forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Get the selected category
+      const category = this.textContent.trim();
+      const allCards = document.querySelectorAll('.project-card');
+      
+      // Define which projects to show for each category
+      const filters = {
+        'All': ['1', '2', '3', '4', '5', '6', '7', '8'],
+        'Website Designs': ['1', '2', '8'], // row 1 and row 4 2nd image
+        'Mobile Designs': ['6', '7'], // row 3 last and row 4 first
+        'Website Re-Designs': ['3', '4', '5'], // row 2 and row 3 first
+        'Landing Pages': ['3', '4'] // row 
+      };
+      
+      // Get the projects to show for this category
+      const projectsToShow = filters[category] || filters['All'];
+      
+      // Hide all cards first, then show only the filtered ones
+      allCards.forEach(card => {
+        const projectId = card.getAttribute('data-project');
+        if (projectsToShow.includes(projectId)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
